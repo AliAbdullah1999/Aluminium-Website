@@ -113,6 +113,10 @@ body {
     box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
 
+.about-us-img {
+    max-width: 340px;
+}
+
 /* Service/Product Card Images */
 .card-img-top {
     height: 220px;
@@ -162,4 +166,197 @@ body {
 /* Utility */
 .color-blue {
     color: #0d6efd !important;
+}
+
+.banner-section {
+    background: url('/images/banner-gliding-1.jpg') center center/cover no-repeat;
+    min-height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 1;
+}
+
+.banner-content {
+    z-index: 2;
+    padding: 60px 0;
+}
+
+.banner-title {
+    font-size: 2.2rem;
+}
+
+.banner-text {
+    font-size: 1.2rem;
+}
+
+.why-choose-us-icon {
+    font-size: 2.5rem;
+    color: #0d6efd;
+}
+
+.why-choose-us-img {
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.cta-section {
+    background: #0d6efd;
+    color: #fff;
+    border-radius: 18px;
+}
+
+#scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #0d6efd;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #084298;
+}
+
+/* Dark Theme */
+body.dark-theme {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-theme nav {
+    background-color: #1f1f1f;
+    border-bottom: 1px solid #333;
+}
+
+body.dark-theme nav ul li a {
+    color: #e0e0e0;
+}
+
+body.dark-theme nav ul li a:hover {
+    background: #333;
+}
+
+body.dark-theme .card {
+    background-color: #1f1f1f;
+    border-color: #333;
+}
+
+body.dark-theme .accordion-item {
+    background-color: #1f1f1f;
+    border-color: #333;
+}
+
+body.dark-theme .accordion-button {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+}
+
+body.dark-theme .accordion-button:not(.collapsed) {
+    background-color: #333;
+}
+
+body.dark-theme .cta-section {
+    background: #0d6efd;
+}
+
+body.dark-theme .about-section h2 {
+    color: #0d6efd;
+}
+
+body.dark-theme .text-muted {
+    color: #aaa !important;
+}
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 30px;
+    border-bottom: 1px solid #eee;
+}
+nav .logo img {
+    height: 50px;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+nav ul li {
+    margin-right: 20px;
+}
+nav ul li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 8px 12px;
+    transition: background 0.2s;
+}
+nav ul li a:hover {
+    background: #f4f4f4;
+    border-radius: 5px;
+}
+.flip-logo {
+    transition: transform 0.6s;
+    display: inline-block;
+}
+.flip-logo:hover {
+    transform: rotateY(180deg);
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: #bbb;
+    padding: 24px 0 12px 0;
+    margin-top: 40px;
+    font-size: 0.95rem;
+}
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+.footer-logo img {
+    height: 32px;
+}
+.footer-links {
+    display: flex;
+    gap: 24px;
+    margin-top: 8px;
+}
+.footer-links a {
+    color: #bbb;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-size: 1rem;
+}
+.footer-links a:hover {
+    color: #fff;
+}
+.footer-bottom {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 0.9rem;
+    color: #888;
 }
