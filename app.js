@@ -20,6 +20,9 @@ app.get("/services", (req,res)=>{
 app.get("/contact", (req,res)=>{
     res.render("contact",{title: "Contact Page"});
 })
+app.get("/get-started", (req,res)=>{
+    res.render("get-started",{title: "Get Started Page"});
+})
 app.use((req, res) => {
     res.status(404).send("404 Not Found - Check your route and file structure.");
 });
