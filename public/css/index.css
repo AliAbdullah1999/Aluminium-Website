@@ -264,6 +264,38 @@ body.dark-theme .card {
     background-color: #084298;
 }
 
+/* Floating WhatsApp and Phone Buttons */
+#whatsapp-float, #phone-float {
+  position: fixed;
+  z-index: 999;
+  right: 30px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: background 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+}
+#whatsapp-float {
+  bottom: 90px;
+  background: #25d366;
+}
+#whatsapp-float:hover {
+  background: #1ebe57;
+}
+#phone-float {
+  bottom: 30px;
+  background: #0d6efd;
+}
+#phone-float:hover {
+  background: #084298;
+}
+
 /* Dark Theme */
 body.dark-theme {
     background-color: #121212;
