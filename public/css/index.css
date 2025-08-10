@@ -239,7 +239,7 @@ body.dark-theme .card {
 }
 
 .cta-section {
-    background: #0d6efd;
+    background:linear-gradient(to right, #1be235, #084298);
     color: #fff;
     border-radius: 18px;
 }
