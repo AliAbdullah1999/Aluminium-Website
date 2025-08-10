@@ -9,19 +9,19 @@ app.set("views", __dirname + "/views");
 app.use(express.static(__dirname + "/public")); 
  
 app.get("/", (req,res)=>{
-    res.render("index",{title: "Home Page"});
+    res.render("index",{title: "Home"});
 })
 app.get("/about", (req,res)=>{
-    res.render("about",{title: "About Page"});
+    res.render("about",{title: "About"});
 })
 app.get("/services", (req,res)=>{
-    res.render("services",{title: "Services Page"});
+    res.render("services",{title: "Services"});
 })
 app.get("/contact", (req,res)=>{
-    res.render("contact",{title: "Contact Page"});
+    res.render("contact",{title: "Contact"});
 })
 app.get("/get-started", (req,res)=>{
-    res.render("get-started",{title: "Get Started Page"});
+    res.render("get-started",{title: "Get Started"});
 })
 app.use((req, res) => {
     res.status(404).send("404 Not Found - Check your route and file structure.");
