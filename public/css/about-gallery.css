@@ -1,0 +1,30 @@
+/* Gallery Carousel Smoother Fade */
+.gallery-img {
+  height: 200px;
+  width: 180px;
+  min-width: 180px;
+  max-width: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  margin-bottom: 1rem;
+  transition: transform 0.5s cubic-bezier(.4,0,.2,1);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.carousel-item.active .gallery-img {
+  transform: scale(1.05);
+}
+.carousel.carousel-fade .carousel-item {
+  transition-property: opacity;
+  transition-duration: 1.2s;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+}
+#galleryCarousel {
+  width: 100%;
+  margin: 0 auto;
+}
+.carousel-inner {
+  text-align: center;
+}
