@@ -1,0 +1,17 @@
+{
+  "name": "sohaib-aluminium-glass",
+  "version": "1.0.0",
+  "description": "Sohaib Aluminium & Glass Works — Express + EJS site",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "ejs": "^3.1.10"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

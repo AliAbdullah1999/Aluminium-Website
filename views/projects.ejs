@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('partials/head') %>
+<style>
+  /* ---------- PROJECT GALLERY CAROUSEL (fix: stack + fade slides) ---------- */
+  .project-gallery{ position:relative; margin-top:36px; }
+  .carousel-track{ position:relative; overflow:hidden; aspect-ratio:16/8; border:1px solid var(--line); }
+  .carousel-inner{ position:relative; width:100%; height:100%; }
+
+  .carousel-slide{
+    position:absolute;
+    inset:0;
+    margin:0;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .6s ease;
+  }
+  .carousel-slide.active{
+    opacity:1;
+    visibility:visible;
+    z-index:1;
+  }
+  .carousel-slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .carousel-slide figcaption{
+    position:absolute;
+    left:0; right:0; bottom:0;
+    padding:24px 28px;
+    background:linear-gradient(0deg, rgba(10,12,13,.85), rgba(10,12,13,0));
+    color:#fff;
+  }
+  .carousel-slide figcaption span{
+    display:block;
+    font-family:'IBM Plex Mono';
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    opacity:.75;
+    margin-bottom:4px;
+  }
+  .carousel-slide figcaption strong{
+    font-family:'Space Grotesk';
+    font-size:18px;
+    font-weight:600;
+  }
+
+  .carousel-dots{
+    display:flex;
+    gap:8px;
+    justify-content:center;
+    margin-top:16px;
+  }
+  .carousel-dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    border:none;
+    background:rgba(0,0,0,.2);
+    cursor:pointer;
+    padding:0;
+    transition:background .15s, transform .15s;
+  }
+  .carousel-dot.active{
+    background:var(--copper);
+    transform:scale(1.2);
+  }
+
+  @media (max-width:700px){
+    .carousel-track{ aspect-ratio:4/5; }
+    .carousel-slide figcaption{ padding:18px; }
+    .carousel-slide figcaption strong{ font-size:16px; }
+  }
+</style>
+</head>
+<body>
+
+<%- include('partials/header', { page: page }) %>
+
+<section class="section" id="projects">
+  <div class="wrap">
+    <div class="kicker">Recent work</div>
+    <h2>Featured projects.</h2>
+    <p class="section-intro">Explore a polished showcase of aluminium, glass, partition, and facade work from our latest installations.</p>
+
+    <% const carouselImages = Array.isArray(projectImages) ? projectImages : []; %>
+    <div class="project-gallery" aria-label="Projects carousel">
+      <div class="carousel-track">
+        <div class="carousel-inner">
+          <% carouselImages.forEach((image, index) => { %>
+            <figure class="carousel-slide <%= index === 0 ? 'active' : '' %>">
+              <img src="<%= image.src %>" alt="<%= image.alt %>">
+              <figcaption>
+                <span>Project showcase</span>
+                <strong><%= image.alt %></strong>
+              </figcaption>
+            </figure>
+          <% }) %>
+        </div>
+      </div>
+      <div class="carousel-dots" role="tablist" aria-label="Select image">
+        <% carouselImages.forEach((image, index) => { %>
+          <button class="carousel-dot <%= index === 0 ? 'active' : '' %>" data-slide="<%= index %>" aria-label="Show image <%= index + 1 %>"></button>
+        <% }) %>
+      </div>
+    </div>
+
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="photo-frame proj-photo"><img src="https://images.pexels.com/photos/34725820/pexels-photo-34725820.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Modern blue glass building facade with open windows"></div>
+        <div class="proj-tag">Commercial</div>
+        <h3>Commercial Plaza</h3>
+        <p>Curtain wall and window systems for a thirty-storey commercial tower.</p>
+      </div>
+      <div class="proj-card">
+        <div class="photo-frame proj-photo"><img src="https://images.pexels.com/photos/36498592/pexels-photo-36498592.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Modern architectural corner with geometric glass design"></div>
+        <div class="proj-tag">Retail</div>
+        <h3>Curtain Walls</h3>
+        <p>Complete aluminium facade and entrance solution for a major retail hub.</p>
+      </div>
+      <div class="proj-card">
+        <div class="photo-frame proj-photo"><img src="https://images.pexels.com/photos/38216275/pexels-photo-38216275.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Modern residential tower with glass windows"></div>
+        <div class="proj-tag">Residential</div>
+        <h3>House Project</h3>
+        <p>Energy-efficient windows and doors for a luxury residential build.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ PROJECT STATS ============ -->
+<section class="section dark">
+  <div class="wrap">
+    <div class="kicker">Track record</div>
+    <h2>What twenty years on site adds up to.</h2>
+    <div class="stats-banner">
+      <div class="stat-cell"><b>500+</b><span>Projects completed</span></div>
+      <div class="stat-cell"><b>30</b><span>Storeys, tallest curtain wall</span></div>
+      <div class="stat-cell"><b>3</b><span>Client sectors</span></div>
+      <div class="stat-cell"><b>0</b><span>Subcontracted installs</span></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section alt">
+  <div class="wrap">
+    <div class="kicker">Why clients stay</div>
+    <h2>Built for the site, not the showroom.</h2>
+    <div class="why-grid">
+      <div class="why-item"><div class="why-num">01</div><h3>Precision manufacturing</h3><p>Every profile is checked against spec before it leaves the workshop.</p></div>
+      <div class="why-item"><div class="why-num">02</div><h3>Fast lead times</h3><p>In-house fabrication means fewer hand-offs and shorter waits.</p></div>
+      <div class="why-item"><div class="why-num">03</div><h3>Custom fabrication</h3><p>Non-standard openings and finishes, built to the drawing, not the catalogue.</p></div>
+      <div class="why-item"><div class="why-num">04</div><h3>Nationwide delivery</h3><p>Packed and shipped to site, anywhere in Pakistan.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="kicker">Client feedback</div>
+    <h2>What our clients say.</h2>
+    <div class="quote-grid">
+      <div class="quote-card"><div class="quote-mark">"</div><p>Excellent service and top-notch quality. Our project was delivered on time and exceeded expectations.</p><div class="quote-name">Sarah K. — Architect</div></div>
+      <div class="quote-card"><div class="quote-mark">"</div><p>Great support and custom solutions for our unique requirements, start to finish.</p><div class="quote-name">Ahmed R. — Contractor</div></div>
+      <div class="quote-card"><div class="quote-mark">"</div><p>Highly recommend for anyone looking for reliable aluminium and glass work.</p><div class="quote-name">Maria L. — Homeowner</div></div>
+    </div>
+  </div>
+</section>
+
+
+<%- include('partials/footer') %>
+
+<%- include('partials/fab') %>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const gallery = document.querySelector('.project-gallery');
+    if (!gallery) return;
+
+    const slides = Array.from(gallery.querySelectorAll('.carousel-slide'));
+    const dots = Array.from(gallery.querySelectorAll('.carousel-dot'));
+    if (!slides.length) return;
+
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      currentIndex = (index + slides.length) % slides.length;
+      slides.forEach(function (slide, slideIndex) {
+        slide.classList.toggle('active', slideIndex === currentIndex);
+      });
+      dots.forEach(function (dot, dotIndex) {
+        dot.classList.toggle('active', dotIndex === currentIndex);
+      });
+    }
+
+    function startAutoPlay() {
+      clearInterval(window.__projectCarouselInterval);
+      window.__projectCarouselInterval = setInterval(function () {
+        showSlide(currentIndex + 1);
+      }, 3000);
+    }
+
+    dots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        showSlide(Number(dot.getAttribute('data-slide')));
+        startAutoPlay();
+      });
+    });
+
+    showSlide(0);
+    startAutoPlay();
+  });
+</script>
+
+<script src="/js/script.js?v=2"></script>
+</body>
+</html>
